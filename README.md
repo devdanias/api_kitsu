@@ -4,10 +4,12 @@ Este projeto consiste em uma aplicação web que utiliza uma API de animes para 
 ![Visão do Sistema](https://github.com/user-attachments/assets/0340d059-b296-4153-869b-87fdf01d77a1)
 
 
-### **Principais Funcionalidades**  
-- **Animes**: Exibição de informações sobre animes, incluindo título, sinopse, avaliação média e datas de criação e atualização.  
-- **Alternância de Tema**: Permite alternar entre os modos claro e escuro, com ícones que indicam o estado atual.  
-- **Responsividade**: Layout adaptável a diferentes tamanhos de tela, garantindo uma boa experiência em dispositivos móveis e desktops.  
-- **Armazenamento de Preferências**: Salva a escolha de tema do usuário no navegador para que a configuração seja mantida entre sessões.
+### **Principais Tecnologias Utilizadas**  
+- **HTML5**: Estrutura básica da página, definindo a marcação e organização dos elementos.  
+- **CSS3**: Estilos visuais para a interface, incluindo temas claro e escuro, além de responsividade.  
+- **JavaScript**: Manipulação da interação do usuário, como a alternância entre os modos de tema e o armazenamento de preferências no navegador.  
+- **Flask**: Framework Python utilizado para criar a API que fornece os dados dos animes para a aplicação web.  
+- **LocalStorage**: Armazenamento no navegador para salvar as preferências de tema do usuário entre as sessões.
+
 
 
