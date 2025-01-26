@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Animes - Lista Dinâmica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        body.dark-mode h1 {
+            color: #fff;
+        }
+        .anime {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .anime-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 22%; 
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .anime-item {
+            background-color: #444;
+        }
+        .anime-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .anime-item h3 {
+            color: #333;
+        }
+        body.dark-mode .anime-item h3 {
+            color: #fff;
+        }
+        .anime-item p {
+            color: #666;
+        }
+        body.dark-mode .anime-item p {
+            color: #ccc;
+        }
+        .rating {
+            font-weight: bold;
+            color: #ff8c00;
+        }
+
+        .dark-mode-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            padding: 12px;
+            background-color: #6c757d;  
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .dark-mode-btn:hover {
+            background-color: #5a6268;
+            transform: scale(1.1);
+        }
+
+        .dark-mode-btn:focus {
+            outline: none;
+        }
+
+        .dark-mode-btn.sun {
+            font-size: 20px;
+        }
+
+        .dark-mode-btn.moon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-btn moon" onclick="toggleTheme()" id="theme-toggle-btn">
+        🌙
+    </button>
+
+    <div class="container">
+        <h1>Catálogo de Animes via API</h1>
+        <div class="anime">
+            {% for anime in animes %}
+            <div class="anime-item">
+                <img src="{{ url_for('static', filename='imagens/' + anime['image_name']) }}" alt="{{ anime['title'] }}">
+                <h3>{{ anime['title'] }}</h3>
+                <p><strong>Sinopse:</strong> {{ anime['synopsis'] }}</p>
+                <p><strong>Avaliação Média:</strong> <span class="rating">{{ anime['average_rating'] }}</span></p>
+                <p><strong>Criado em:</strong> {{ anime['created_at'] }}</p>
+                <p><strong>Atualizado em:</strong> {{ anime['updated_at'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.getElementById('theme-toggle-btn');
+            
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                button.classList.remove('moon');
+                button.classList.add('sun');
+                button.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                button.classList.remove('sun');
+                button.classList.add('moon');
+                button.textContent = '🌙';
+            }
+        }
+
+        window.onload = function() {
+            const theme = localStorage.getItem('theme');
+            const button = document.getElementById('theme-toggle-btn');
+            
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                button.classList.remove('moon');
+                button.classList.add('sun');
+                button.textContent = '☀️';
+            }
+        };
+    </script>
+</body>
+</html>
