@@ -1,5 +1,5 @@
 # API KITSU  
-**Este projeto consiste em uma aplicação web que utiliza uma API de animes para exibir dados como título, sinopse, avaliação e datas de criação e atualização. A página permite alternar entre temas claro e escuro, com um layout responsivo para uma visualização agradável. A aplicação é desenvolvida com HTML, CSS e JavaScript, proporcionando uma experiência interativa e personalizada para o usuário.
+Este projeto consiste em uma aplicação web que utiliza uma API de animes para exibir dados como título, sinopse, avaliação e datas de criação e atualização. A página permite alternar entre temas claro e escuro, com um layout responsivo para uma visualização agradável. A aplicação é desenvolvida com HTML, CSS e JavaScript, proporcionando uma experiência interativa e personalizada para o usuário.
 
 ![Visão do Sistema](https://github.com/user-attachments/assets/0340d059-b296-4153-869b-87fdf01d77a1)
 
